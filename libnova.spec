@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/libnova
 %{_libdir}/libnova.la
-%{_libdir}/libnova.so
+%attr(755,root,root) %{_libdir}/libnova.so
 
 %files static
 %defattr(644,root,root,755)
