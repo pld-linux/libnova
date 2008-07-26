@@ -21,20 +21,27 @@ Requires:	%{name} = %{version}-%{release}
 %description devel
 Libraries and includes files for developing programs based on libnova.
 
+%package static
+Summary:	Static libnova library
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static libnova library.
+
 %prep
 %setup -q
 
 %build
 %configure
-%{__make} CFLAGS="%{optflags}"
+%{__make} \
+       CFLAGS="%{rpmcflags}" \
+       LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-# get rid of *.la files
-rm -f $RPM_BUILD_ROOT%{_libdir}/libnova.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -51,5 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/libnova
-%{_libdir}/libnova.a
+%{_libdir}/libnova.la
 %{_libdir}/libnova.so
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libnova.a
