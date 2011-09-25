@@ -1,13 +1,12 @@
 Summary:	General purpose astronomy & astrodynamics library
 Summary(pl.UTF-8):	Biblioteka astronomiczna i astrodynamiczna ogólnego przeznaczenia
 Name:		libnova
-# 0.14.0 tarball on sf is truncated
-Version:	0.13.0
+Version:	0.14.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/libnova/%{name}-%{version}.tar.gz
-# Source0-md5:	32f67b1ae28372582da7fe4e6f554dcd
+# Source0-md5:	e81a00efedfa3043cd6018383e8a0438
 URL:		http://libnova.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -68,8 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS
 %attr(755,root,root) %{_bindir}/libnovaconfig
-%attr(755,root,root) %{_libdir}/libnova-0.13.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libnova-0.13.so.0
+%attr(755,root,root) %{_libdir}/libnova-0.14.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libnova-0.14.so.0
 
 %files devel
 %defattr(644,root,root,755)
