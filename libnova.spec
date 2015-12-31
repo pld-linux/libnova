@@ -2,7 +2,7 @@ Summary:	General purpose astronomy & astrodynamics library
 Summary(pl.UTF-8):	Biblioteka astronomiczna i astrodynamiczna ogólnego przeznaczenia
 Name:		libnova
 Version:	0.14.0
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/libnova/%{name}-%{version}.tar.gz
