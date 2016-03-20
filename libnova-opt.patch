@@ -1,0 +1,11 @@
+--- libnova-0.15.0/configure.in.orig	2012-07-11 10:23:42.000000000 +0200
++++ libnova-0.15.0/configure.in	2016-03-20 16:49:32.482399751 +0100
+@@ -63,7 +63,7 @@
+ AC_CHECK_FUNCS([asinl])
+ AC_CHECK_FUNCS([atan2l])
+ 
+-CFLAGS=-Wall
++CFLAGS="$CFLAGS -Wall"
+ 
+ # Checks for header files.
+ AC_HEADER_STDC
