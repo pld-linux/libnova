@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	avx	# AVX instructions
+
 Summary:	General purpose astronomy & astrodynamics library
 Summary(pl.UTF-8):	Biblioteka astronomiczna i astrodynamiczna ogólnego przeznaczenia
 Name:		libnova
@@ -5,13 +9,14 @@ Version:	0.16
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
+#Source0Download: https://gitlab.com/libnova/libnova/-/tags
 Source0:	https://gitlab.com/libnova/libnova/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 # Source0-md5:	85dafbc9ec042e483d2f68849feb2d9a
 Patch0:		%{name}-opt.patch
 URL:		https://gitlab.com/libnova/libnova
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.11
+BuildRequires:	libtool >= 2:2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,7 +63,8 @@ echo %{version} > .tarball-version
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	%{?with_avx:--enable-avx}
 %{__make}
 
 %install
