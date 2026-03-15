@@ -1,11 +1,21 @@
---- libnova-0.15.0/configure.in.orig	2012-07-11 10:23:42.000000000 +0200
-+++ libnova-0.15.0/configure.in	2016-03-20 16:49:32.482399751 +0100
-@@ -63,7 +63,7 @@
- AC_CHECK_FUNCS([asinl])
- AC_CHECK_FUNCS([atan2l])
- 
+--- libnova-v0.16.orig/configure.ac	2015-03-03 12:16:58.000000000 +0100
++++ libnova-v0.16/configure.ac	2026-03-15 11:53:24.212469530 +0100
+@@ -100,7 +100,7 @@
+ fi
+
+ dnl Make sure we fail on all warnings
 -CFLAGS=-Wall
 +CFLAGS="$CFLAGS -Wall"
- 
- # Checks for header files.
- AC_HEADER_STDC
+
+ AC_CONFIG_FILES([
+ Makefile
+--- libnova-v0.16.orig/src/Makefile.am	2015-03-03 12:16:58.000000000 +0100
++++ libnova-v0.16/src/Makefile.am	2026-03-15 11:53:24.214483085 +0100
+@@ -1,6 +1,6 @@
+ ## Process this file with automake to produce Makefile.in
+
+-AM_CFLAGS = -Wall -O3 $(AVX_CFLAGS)
++AM_CFLAGS = -Wall $(AVX_CFLAGS)
+
+ SUBDIRS = libnova
+

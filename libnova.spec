@@ -1,14 +1,14 @@
 Summary:	General purpose astronomy & astrodynamics library
 Summary(pl.UTF-8):	Biblioteka astronomiczna i astrodynamiczna ogólnego przeznaczenia
 Name:		libnova
-Version:	0.15.0
+Version:	0.16
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/libnova/%{name}-%{version}.tar.gz
-# Source0-md5:	756fdb55745cb78511f83a62c25f3be4
+Source0:	https://gitlab.com/libnova/libnova/-/archive/v%{version}/%{name}-v%{version}.tar.gz
+# Source0-md5:	85dafbc9ec042e483d2f68849feb2d9a
 Patch0:		%{name}-opt.patch
-URL:		http://libnova.sourceforge.net/
+URL:		https://gitlab.com/libnova/libnova
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -48,12 +48,13 @@ Static libnova library.
 Statyczna biblioteka libnova.
 
 %prep
-%setup -q
+%setup -q -n %{name}-v%{version}
 %patch -P0 -p1
+echo %{version} > .tarball-version
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -75,8 +76,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS
 %attr(755,root,root) %{_bindir}/libnovaconfig
-%attr(755,root,root) %{_libdir}/libnova-0.15.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libnova-0.15.so.0
+%attr(755,root,root) %{_libdir}/libnova-0.16.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libnova-0.16.so.0
 
 %files devel
 %defattr(644,root,root,755)
