@@ -82,12 +82,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS
 %attr(755,root,root) %{_bindir}/libnovaconfig
-%attr(755,root,root) %{_libdir}/libnova-0.16.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libnova-0.16.so.0
+%{_libdir}/libnova-0.16.so.*.*.*
+%ghost %{_libdir}/libnova-0.16.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libnova.so
+%{_libdir}/libnova.so
 %{_libdir}/libnova.la
 %{_includedir}/libnova
 
